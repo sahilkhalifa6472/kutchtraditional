@@ -1,0 +1,8 @@
+{
+  "name": "kutchtraditional",
+  "description": "Authentic Kutch Traditional art, premium handicrafts, and organic dry fruits from the heart of Gujarat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

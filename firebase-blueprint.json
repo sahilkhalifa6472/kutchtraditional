@@ -1,0 +1,125 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Dry fruits, nuts, and organic foods offered by Kutch Traditional",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "images": { "type": "array" },
+        "sizes": { "type": "array" },
+        "description": { "type": "string" },
+        "ingredients": { "type": "array" },
+        "benefits": { "type": "array" },
+        "howToUse": { "type": "string" },
+        "isNew": { "type": "boolean" },
+        "isBestSeller": { "type": "boolean" },
+        "badge": { "type": "string" },
+        "stockStatus": { "type": "string" }
+      },
+      "required": ["name", "price", "category"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Product categories available in store",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "image": { "type": "string" },
+        "count": { "type": "number" }
+      },
+      "required": ["id", "name", "image"]
+    },
+    "BannerSlide": {
+      "title": "BannerSlide",
+      "description": "Hero banner promo carousel slide",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "tag": { "type": "string" },
+        "titleLine1": { "type": "string" },
+        "titleLine2": { "type": "string" },
+        "buttonText": { "type": "string" },
+        "code": { "type": "string" },
+        "bgGradient": { "type": "string" },
+        "imageSrc": { "type": "string" }
+      },
+      "required": ["tag", "titleLine1", "imageSrc"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "shippingAddress": { "type": "string" },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string" },
+        "date": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "trackingNumber": { "type": "string" }
+      },
+      "required": ["orderNumber", "totalAmount", "status"]
+    },
+    "Analytics": {
+      "title": "Analytics",
+      "description": "Store traffic and visit analytics",
+      "type": "object",
+      "properties": {
+        "totalVisits": { "type": "number" },
+        "pageViews": { "type": "object" },
+        "productViews": { "type": "object" },
+        "dailyVisits": { "type": "array" },
+        "trafficSources": { "type": "array" }
+      }
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Global store settings and announcement message",
+      "type": "object",
+      "properties": {
+        "announcementText": { "type": "string" },
+        "imgbbApiKey": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product collection for Kutch Traditional dry fruits catalog"
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Categories collection for product filtering"
+    },
+    "/slides/{slideId}": {
+      "schema": "BannerSlide",
+      "description": "Promotional banner slides"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Placed orders by customers and admin dispatch logs"
+    },
+    "/analytics/{analyticsId}": {
+      "schema": "Analytics",
+      "description": "Aggregated store traffic and page view statistics"
+    },
+    "/settings/{settingId}": {
+      "schema": "StoreSettings",
+      "description": "Store configuration and ImgBB settings"
+    }
+  }
+}
